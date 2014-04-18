@@ -30,7 +30,7 @@ class api:
  ##generate segnature
  def __signature(self):
   string = self.__nonce_v + self.__username + self.__api_key ##create string
-  signature = hmac.new(self.__api_secret, string, digestmod=hashlib.sha256).hexdigest().upper() ##create signature
+  signature = hmac.new(str(self.__api_secret), string, digestmod=hashlib.sha256).hexdigest().upper() ##create signature
   return signature
 
  def __post(self, url, param): ##Post Request (Low Level API call)
